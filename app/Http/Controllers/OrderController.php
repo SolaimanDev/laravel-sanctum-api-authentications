@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Order;
 use Illuminate\Http\Request;
-
+use Mail;
 class OrderController extends Controller
 {
     public function index()
@@ -24,10 +24,26 @@ class OrderController extends Controller
        $data = array('status' => $type);
        if($order->update($data))
        {
-       	return "Success";
+          $this->sendMailToCustomer($order->customer->email);
+       	  return redirect()->back()
+                        ->with('success','Mail sent successfully.');
        }else{
-       	return "Failed";
+       	return redirect()->back()
+                        ->with('error','Something went wrong.');
        }
+
+
+    }
+
+    public function sendMailToCustomer($email_address)
+    {  
+      $data = array('name'=>"Solaiman Ahmed");
+      Mail::send('email.customer', $data, function($message) {
+        // Set Valid Email 
+         $message->to('rerala3333@niekie.com')->subject('Order Informations'); 
+         $message->from('Emily0000021@gmail.com','Solaiman Ahmed');
+      });
+
 
 
     }

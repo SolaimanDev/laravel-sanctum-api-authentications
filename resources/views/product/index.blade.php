@@ -5,7 +5,7 @@
     <div class="row justify-content-end">
         <div class="col-md-8 margin-tb">
             <div class="pull-left">
-                <h2>Products management </h2>
+                <h2>Product management </h2>
             </div>
             <div class="pull-right">
                 <a class="btn btn-success" href="{{ route('product.create') }}"> Create New Product</a>
@@ -57,8 +57,9 @@
             </tr>
             @endforeach
         	</table>
+            {!! $products->links() !!}
          </div>
      </div> 
-    {!! $products->links() !!}
+    
    </div>     
 @endsection

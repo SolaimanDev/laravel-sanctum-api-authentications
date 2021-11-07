@@ -1,0 +1,1 @@
+<h2>Your order placed successfully.</h2>

@@ -18,7 +18,7 @@ class CreateOrdersTable extends Migration
             $table->integer('user_id');
             $table->double('amount')->nullable();
             $table->json('product_details')->nullable();
-            $table->tinyInteger('status')->defualt(0);
+            $table->tinyInteger('status')->defualt(0)->comment('1 For Pending, 2 For Proccessing, 3 For Shipment, 4 For Cancel');
             $table->date('order_date')->nullable();
             $table->timestamps();
         });

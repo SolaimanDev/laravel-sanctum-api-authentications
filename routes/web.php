@@ -22,4 +22,4 @@ Auth::routes();
 Route::resource('product', ProductController::class);
 Route::get('/order-list', [OrderController::class,'index']);
 Route::get('/order-change/{status}/{id}', [OrderController::class,'changeStatus']);
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('role');

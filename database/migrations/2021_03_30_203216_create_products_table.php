@@ -20,7 +20,7 @@ class CreateProductsTable extends Migration
             $table->string('image')->nullable();
             $table->string('description')->nullable();
             $table->decimal('price');
-            $table->tinyinteger('status')->default(1);
+            $table->tinyinteger('status')->default(1)->comment('1 For Active, 2 For Inactive');
             $table->timestamps();
         });
     }
